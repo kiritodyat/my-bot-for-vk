@@ -1,1 +1,1 @@
-wed: python bots.py
+bot: python bots.py
