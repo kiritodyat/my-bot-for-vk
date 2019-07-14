@@ -1,2 +1,2 @@
 bot: python bots.py
-bot: python get.py
+bot_2: python get.py
