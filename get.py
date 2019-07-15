@@ -5,13 +5,13 @@ import requests
 from io import BytesIO
 import requests
 
-token='4c32285d75a8cae5f06d033385b7048b67a680bf702c77d03d7e86ca7386db1f2e23ab7a66ce5827d7be0'
+token='27b7ab9bb881978742286fd17cd604145d22f365a8d2f8d8e6bcb149fe87cb86d4aac1e7671f1b43ad0a6'
 
 vk = vk_api.VkApi(token=token)
 ses_api= vk.get_api()
 longpoll= VkBotLongPoll(vk,182171896)
 # создание круглой маски
-group_id = 182171896
+group_id =  182171896
 
 
 upload = vk_api.VkUpload(ses_api)
@@ -71,7 +71,7 @@ def minifoto(user_id) :
     output = ImageOps.fit(im, mask.size, centering=(0.5, 0.5))
     output.putalpha(mask)
     output.thumbnail(size, Image.ANTIALIAS)
-    output.save('pic\output.png')
+    output.save('pic/output.png')
     
 while True:
     for event in longpoll.listen():
@@ -83,18 +83,18 @@ while True:
                
                 minifoto(user_id)    
                
-
-                output = Image.open("pic\output.png")
-                bg = Image.open("pic\bg.png")
+                print(name_surname)
+                output = Image.open('pic/output.png')
+                bg = Image.open('pic/bg1.png')
                 bg.paste(output, (455,160), output)
                 draw = ImageDraw.Draw(bg)
-                font = ImageFont.truetype("pic\16863.otf", 36)
+                font = ImageFont.truetype('pic/16863.otf', 36)
                 
                 draw.text((450,317),name_surname, (255,255,255), font=font)
                 
-                bg.save("pic\result1.png")
+                bg.save('pic/result.png')
 
-                photo = upload.photo_cover(photo='pic\result1.png',group_id=173234556,crop_x=0,crop_y=0,crop_x2=1590,crop_y2=400)
+                photo = upload.photo_cover(photo='pic/result.png',group_id=group_id,crop_x=0,crop_y=0,crop_x2=1590,crop_y2=400)
                
                 
             except:
