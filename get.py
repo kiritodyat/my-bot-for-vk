@@ -71,7 +71,7 @@ def minifoto(user_id) :
     output = ImageOps.fit(im, mask.size, centering=(0.5, 0.5))
     output.putalpha(mask)
     output.thumbnail(size, Image.ANTIALIAS)
-    output.save('pic/output.png')
+    output.save('pic\output.png')
     
 while True:
     for event in longpoll.listen():
@@ -84,17 +84,17 @@ while True:
                 minifoto(user_id)    
                
 
-                output = Image.open("pic/output.png")
-                bg = Image.open("pic/bg.png")
+                output = Image.open("pic\output.png")
+                bg = Image.open("pic\bg.png")
                 bg.paste(output, (455,160), output)
                 draw = ImageDraw.Draw(bg)
-                font = ImageFont.truetype("pic/16863.otf", 36)
+                font = ImageFont.truetype("pic\16863.otf", 36)
                 
                 draw.text((450,317),name_surname, (255,255,255), font=font)
                 
-                bg.save("pic/result1.png")
+                bg.save("pic\result1.png")
 
-                photo = upload.photo_cover(photo='pic/result1.png',group_id=173234556,crop_x=0,crop_y=0,crop_x2=1590,crop_y2=400)
+                photo = upload.photo_cover(photo='pic\result1.png',group_id=173234556,crop_x=0,crop_y=0,crop_x2=1590,crop_y2=400)
                
                 
             except:
