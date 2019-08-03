@@ -11,7 +11,7 @@ vk = vk_api.VkApi(token=token)
 ses_api= vk.get_api()
 longpoll= VkBotLongPoll(vk,182171896)
 # создание круглой маски
-group_id =  182171896
+group_id = 182171896
 
 
 upload = vk_api.VkUpload(ses_api)
